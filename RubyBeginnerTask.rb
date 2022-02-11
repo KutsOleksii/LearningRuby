@@ -14,7 +14,7 @@ class Task2
     d = gets.to_i
     (d + 1).times do |i|
       (d + 1).times do |j|
-        print ((i - d / 2) ** 2 + (j - d / 2) ** 2) <= (d * d / 4) ? '#' : ' '
+        print ((i - d / 2)**2 + (j - d / 2)**2) <= (d * d / 4) ? '#' : ' '
       end
       puts
     end
@@ -35,7 +35,7 @@ end
 # Написать рекурсивный метод для поиска значения ключа key9 в хеше:
 class Task4
   def do_a_task
-    hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } }}
+    hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } } }
     puts hash[:key3]
 
     def rec_search(search_key, hash)
@@ -61,7 +61,7 @@ class Task5
     def formatize(str, arg)
       case arg
       when :camel
-        (str.split.each(&:capitalize!)).join
+        str.split.each(&:capitalize!).join
       when :underscore
         str.tr(' ', '_')
       when :css
@@ -80,13 +80,13 @@ end
 class Task6
   def do_a_task
     array = [
-             [1, 2, 3, 4, '1'],
-             ['2', '5', '10'],
-             [111, 222, 333, 444],
-             ['i', 'love', 'ruby'],
-             { key: 'value' },
-             [[['text', 100_000]]],
-             [1..15, :lexus]
+              [1, 2, 3, 4, '1'],
+              ['2', '5', '10'],
+              [111, 222, 333, 444],
+              ['i', 'love', 'ruby'],
+              { key: 'value' },
+              [[['text', 100_000]]],
+              [1..15, :lexus]
     ]
     puts array.to_s
 
@@ -107,17 +107,16 @@ end
 # будет одна точка входа программы с основным классом, котоый должен будет вызывать
 # все другие. Каждый таск запускается с помощью консоли. Ввели в консоли 1 -
 # запускается и выполняется первый таск.
-
 class BeginnerTask
-  def do_a_task(n)
-    task = Object.const_get("Task#{n}").new
-    puts "Выполняю задание ##{n}"
+  def do_a_task(number)
+    task = Object.const_get("Task#{number}").new
+    puts "Выполняю задание ##{number}"
     task.do_a_task
   end
 end
 
 b_t = BeginnerTask.new
-while true do
+while true
   print 'Введите номер задачи от 1 до 6 (0 - выход): '
   n = gets.to_i
   case n
