@@ -21,7 +21,6 @@ class Task2
     d = gets.to_i
     (d + 1).times do |i|
       (d + 1).times do |j|
-        # Не уверен, что эта строка отформатирована правильно
         if ((i - d / 2) ** 2 + (j - d / 2) ** 2) <= (d * d / 4)
           print '#'
         else
@@ -125,18 +124,6 @@ class Task6
       arr.flatten(deep).select { |v| v.is_a?(type) }
     end
 
-    # puts "\nget_all(array, Integer)"
-    # puts get_all(array, Integer).to_s
-    # puts "\nget_all(array, String)"
-    # puts get_all(array, String).to_s
-    # puts "\nget_all(array, Hash)"
-    # puts get_all(array, Hash).to_s
-    # puts "\nget_all(array, Range)"
-    # puts get_all(array, Range).to_s
-    # puts "\nget_all(array, Array)"
-    # puts get_all(array, Array).to_s
-    # puts "\nget_all(array, Symbol)"
-    # puts get_all(array, Symbol).to_s
     [Integer, String, Hash, Range, Array, Symbol].each do |klass|
       puts "\nget_all(array, #{klass})"
       puts get_all(array, klass).to_s
