@@ -2,14 +2,7 @@
 # Вывести в консоль, 30 раз "<3 ruby", каждый в новой строке, 10ый, 20ый, и 25ый вывод вывести просто "ruby".
 class Task1
   def do_a_task
-    30.times { |v| p [10, 20, 25].include?(v) ? "<3" : "ruby" }
-    # (1..30).each do |i|
-    #   case i
-    #   when 10, 20, 25
-    #     print "<3 "
-    #   end
-    #   puts "ruby"
-    # end
+    30.times { |v| p [10, 20, 25].include?(v) ? '<3' : 'ruby' }
   end
 end
 
@@ -17,15 +10,11 @@ end
 # Нарисовать в консоле круг, диаметр\радиус которого задается с консоли.
 class Task2
   def do_a_task
-    print "Введите диаметр круга: "
+    print 'Введите диаметр круга: '
     d = gets.to_i
     (d + 1).times do |i|
       (d + 1).times do |j|
-        if ((i - d / 2) ** 2 + (j - d / 2) ** 2) <= (d * d / 4)
-          print '#'
-        else
-          print ' '
-        end
+        print ((i - d / 2) ** 2 + (j - d / 2) ** 2) <= (d * d / 4) ? '#' : ' '
       end
       puts
     end
@@ -36,7 +25,7 @@ end
 # Вывести в консоль матрицу с еденицами по диагонали. Размер задается с консоли.
 class Task3
   def do_a_task
-    print "Введите размер матрицы: "
+    print 'Введите размер матрицы: '
     d = gets.to_i
     d.times { |i| puts "#{'0' * i}1#{'0' * (d - i - 1)}" }
   end
@@ -48,11 +37,6 @@ class Task4
   def do_a_task
     hash = { key1: {}, key2: {}, key3: { key4: 'str', key5: 'str2', key6: { key7: { key8: 1, key9: [2]} } }}
     puts hash[:key3]
-
-    # 1. Берём очередное значение хеша (each)
-    # 2. Если ключ совпадает - возвращаем результат
-    # 3. Если хеш - реккурсия
-    # 4. Если закончились элементы - возвращаем "не найден" (почему-то не работает)
 
     def rec_search(search_key, hash)
       hash.each do |key, value|
@@ -79,11 +63,9 @@ class Task5
       when :camel
         (str.split.each(&:capitalize!)).join
       when :underscore
-        str.split.join('_')
+        str.tr(' ', '_')
       when :css
-        str.split.join('-')
-      else
-        "4"
+        str.tr(' ', '-')
       end
     end
 
@@ -108,18 +90,7 @@ class Task6
     ]
     puts array.to_s
 
-    # 1. используем метод flatten
-    # 2. Если ключ совпадает - возвращаем результат
-    # 3. Если хеш - реккурсия
-    # 4. Если закончились элементы - возвращаем "не найден"
-
     def get_all(arr, type, deep = nil)
-      # a = []
-      # deep = 0 if type == Array
-      # arr.flatten(deep).each do |element|
-      #    a << element if element.is_a?(type)
-      # end
-      # a # Пишут, что return лучше избегать, но просто 'a' выглядит странно
       deep = 0 if type == Array
       arr.flatten(deep).select { |v| v.is_a?(type) }
     end
@@ -139,7 +110,6 @@ end
 
 class BeginnerTask
   def do_a_task(n)
-    # task = eval "Task#{n}.new"
     task = Object.const_get("Task#{n}").new
     puts "Выполняю задание ##{n}"
     task.do_a_task
@@ -148,7 +118,7 @@ end
 
 b_t = BeginnerTask.new
 while true do
-  print "Введите номер задачи от 1 до 6 (0 - выход): "
+  print 'Введите номер задачи от 1 до 6 (0 - выход): '
   n = gets.to_i
   case n
   when 1..6
@@ -156,6 +126,6 @@ while true do
   when 0
     break
   else
-    puts "Некорректная команда"
+    puts 'Некорректная команда'
   end
 end
