@@ -2,7 +2,7 @@
 # Вывести в консоль, 30 раз "<3 ruby", каждый в новой строке, 10ый, 20ый, и 25ый вывод вывести просто "ruby".
 class Task1
   def do_a_task
-    30.times { |v| p [10, 20, 25].include?(v) ? '<3' : 'ruby' }
+    30.times { |v| p [10, 20, 25].include?(v) ? '<3 ruby' : 'ruby' }
   end
 end
 
