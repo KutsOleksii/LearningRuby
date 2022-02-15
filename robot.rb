@@ -71,7 +71,7 @@ class Robot
     when 'MOVE'
       move(table)
     when 'PLACE'
-      place(":#{arr[3].downcase}".to_sym, table, arr[1].to_i, arr[2].to_i)
+      place(arr[3].downcase.to_sym, table, arr[1].to_i, arr[2].to_i)
     end
   end
 end
