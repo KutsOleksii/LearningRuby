@@ -12,8 +12,8 @@ end
 # read lines from stdin
 def get_results
   results = []
-  return if ARGV == []
-  File.new(ARGV[0]).each do |line|
+# Капец! А шо, так можно было!!!
+  while line = gets do
     arr = line.split(', ')
     name = arr.map {|a| a.split[0..-2].join(' ')}
     score = arr.map {|a| a.split[-1]}
@@ -41,7 +41,6 @@ def print_ranking_table(results)
   results.each_index {|i| puts "#{i+1}. #{results[i][1]}, #{-results[i][0]}"}
 end
 
-p ARGV
 print_ranking_table(make_ranking_table(get_results))
 # 1. если нет параметров pipe or redirect, запросить имя файла
 # 2. анализ pipe or redirect or file_name
