@@ -37,9 +37,10 @@ end
 # output ranking table to stdout
 def print_ranking_table(results)
   return until results
-  results.each_index { |i| puts "#{i + 1}. #{results[i][1]}, #{-results[i][0]}" }
+  results.each_index { |i| puts "#{i + 1}. #{results[i][1]}, #{-results[i][0]} pt#{'s' if results[i][0] != -1}" }
 end
 
 print_ranking_table(make_ranking_table(read_results))
+
 # 1. если нет параметров pipe or redirect, запросить имя файла
 # 2. анализ pipe or redirect or file_name
